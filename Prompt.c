@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "lista.h"
 
 void print_entry(char *entry) {
 	printf("You entered: %s\n", entry);
