@@ -14,11 +14,12 @@ struct lista
 typedef struct lista Lista;
 
 
-void create(Lista* l);
-void put(Lista* l, int n );
+Lista* create(Lista* l);
+Lista* put(Lista* l, int n );
 int get(Lista* l, int pos);
 void list(Lista* l);
-void remove(Lista* l, int pos);
+Lista* remove_(Lista* l, int pos);
 void clear(Lista* l);
 int first(Lista* l);
 int last(Lista* l);
+void sort(Lista** l);

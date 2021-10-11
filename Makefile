@@ -1,11 +1,13 @@
 GCC=gcc
 CFLAGS=-Wall # mostrar todos os warnings
 
-all: desafio
+CPROG = $(wildcard *.c)
+CPROG := $(CPROG:Prompt.c=)
 
-desafio: Prompt.c
-	$(GCC) $(CFLAGS) Prompt.c -o desafio
-	@echo COMPILOU
+all: main
 
-#%: %.c:
-#	$(GCC) $(CFLAGS) $< -o $@
+.PHONY: main
+
+main: $(CPROG)
+	@echo $(CPROG)
+	$(GCC) $(CFLAGS) $(CPROG) -o $@
