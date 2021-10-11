@@ -1,7 +1,6 @@
 #include "lista.h"
 
 
-
 Lista* create(Lista* l){
 
     if (l == NULL){
@@ -36,7 +35,7 @@ Lista* put(Lista* l, int n ){
 
 }
 int get(Lista* l, int pos){
-    
+
     int a;
     for(a=1; a != pos; a++){
         l = l->proximo;
@@ -54,6 +53,7 @@ void list(Lista* l){
     printf("\n");
 
 }
+
 Lista* remove_(Lista* l, int pos){
 
     /*Se o valor a remover é o primeiro elemento da lista*/
@@ -84,13 +84,36 @@ Lista* remove_(Lista* l, int pos){
 
 }
 void clear(Lista* l){
-    free(l);
+
+    Lista* inicio = l;
+
+    /*desalocando todos os nós*/
+    while(inicio != NULL){
+        Lista* anterior=NULL;
+        while(l->proximo != NULL){
+            anterior = l;
+            l = l->proximo;
+        }
+
+        free(l);
+        if(anterior != NULL){
+            anterior->proximo = NULL; 
+        }
+        if(l == inicio){
+            inicio = NULL;
+        }
+
+        l = inicio;
+    }
+
 }
 int first(Lista* l){
     return get(l, 1);
 }
 int last(Lista* l){
+
     while(l->proximo!=NULL){
+
         l = l->proximo;
     }
 

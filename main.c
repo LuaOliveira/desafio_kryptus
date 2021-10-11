@@ -19,6 +19,9 @@ int main(){
         char * comando = strtok(entrada, " \n");
         char * valor_string = strtok(NULL, " ");
 
+        if(comando == NULL){
+            continue;
+        }
         if(valor_string != NULL){
 
             valor = atoi(valor_string);
@@ -33,6 +36,7 @@ int main(){
             l = remove_(l, valor);
         }else if(strcmp(comando, "clear") == 0){
             clear(l);
+            l =NULL;
         }else if(strcmp(comando, "first") == 0){
             printf("%d\n", first(l));
         }else if(strcmp(comando, "last") == 0){
